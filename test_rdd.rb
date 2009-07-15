@@ -1,3 +1,4 @@
+$LOAD_PATH.push('lib')
 require 'rdd'
 r = []
 5.times{|i|
@@ -32,7 +33,7 @@ u6 = (:x41 + :x52 < 2)
 
 g = g & u0 & u1 & u2 & u3 & u4 & u5 & u6
 p g.count
-
+g.print
 
 #4-queen
 r = []
@@ -63,6 +64,7 @@ u4 = (:x31 + :x42 < 2)
 
 g = g & u0 & u1 & u2 & u3 & u4
 p g.count
+g.print
 
 
 
