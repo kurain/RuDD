@@ -10,7 +10,6 @@ class BtoI
   @@IPList = []
 
   def self.ISOP0(s,r)
-    puts 'ISOP0'
     return -1 if s == -1
     return -1 if r == -1
     return 0  if r == 1
@@ -21,7 +20,7 @@ class BtoI
     if top == 0
       @@bout << '|' if @@P_OR != 0
       @@P_OR = 1
-      for i in (0..@@LitIP)
+      for i in (0...@@LitIP)
         @@bout << "&" if i > 0
         var = @@IPList[i]
         @@bout << ' '
@@ -56,7 +55,6 @@ class BtoI
   end
 
   def self.ISOP(f)
-    puts 'ISOP'
     return 1 if f == -1
 
     if f == 0
@@ -78,7 +76,6 @@ class BtoI
   end
 
   def self.XISOP(f)
-    puts 'XISOP'
     return 1 if f == -1
 
     if f == 0
@@ -97,7 +94,7 @@ class BtoI
 
     paren = 0
     n_ip = Symbol.vars.length
-    for i in (0..n_ip)
+    for i in (0...n_ip)
       var = i + RUBDD.BDDV_SysVarTop + 1
       f0 = f.At0(var)
       return 1 if f0 == -1
@@ -144,7 +141,6 @@ class BtoI
   end
 
   def self.PutList(v, xor_, base)
-    puts'PutList'
     return 1 if v.eq BtoI.new(BDD.new(-1))
     if base != 0 && v.Top == 0
       return 1 if self.PutNum(v, base)  == 1
@@ -187,7 +183,6 @@ class BtoI
   end
 
   def self.PutNum(v, base)
-    puts 'PutNum'
     ovf = 0
 
     if v.Top > 0
